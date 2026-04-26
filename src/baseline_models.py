@@ -20,15 +20,13 @@ class BaselineModels:
         set_seed(42)
 
     def train_all_models(self):
-        print("\n" + "=" * 60)
         print("BASELINE МОДЕЛИ")
-        print("=" * 60)
 
         # 1. Linear Regression
         self._train_model(
             LinearRegression(),
             "Linear Regression",
-            ""
+            "Линейная регрессия"
         )
 
         # 2. Ridge Regression (L2 regularization)
@@ -46,30 +44,29 @@ class BaselineModels:
         )
 
         # 4. K-Nearest Neighbors
-        self._train_model(
-            KNeighborsRegressor(n_neighbors=10),
-            "KNN (k=10)",
-            "Непараметрическая модель на основе соседей"
-        )
+        #self._train_model(
+        #    KNeighborsRegressor(n_neighbors=10),
+        #    "KNN (k=10)",
+        #    "Непараметрическая модель на основе соседей"
+        #)
 
         # 5. Decision Tree
         self._train_model(
             DecisionTreeRegressor(max_depth=10, random_state=42),
             "Decision Tree",
-            "Дерево решений (интерпретируемая)"
+            "Дерево решений"
         )
 
         # 6. Random Forest (ансамбль деревьев)
         self._train_model(
-            RandomForestRegressor(n_estimators=100, max_depth=15, random_state=42, n_jobs=-1),
+            RandomForestRegressor(n_estimators=50, max_depth=10, random_state=42, n_jobs=-1),
             "Random Forest",
-            "Ансамбль из 100 деревьев"
+            "Ансамбль из 50 деревьев"
         )
 
         return self.results
 
     def _train_model(self, model, name, description):
-        print(f"\n{'─' * 50}")
         print(f" {name}")
         print(f"   {description}")
 
@@ -103,9 +100,7 @@ class BaselineModels:
         return model
 
     def compare_results(self):
-        print("\n" + "=" * 60)
         print("СРАВНЕНИЕ МОДЕЛЕЙ")
-        print("=" * 60)
 
         # Создаем таблицу результатов
         results_df = []

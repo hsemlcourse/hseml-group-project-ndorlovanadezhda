@@ -6,9 +6,7 @@ from src.utils import detect_outliers_iqr, set_seed
 
 
 def load_and_clean_data(filepath):
-    print("\n" + "=" * 60)
     print("ЗАГРУЗКА И ОЧИСТКА ДАННЫХ")
-    print("=" * 60)
 
     df = pd.read_csv(filepath)
     print(f"\nЗагружено данных: {df.shape[0]:,} строк, {df.shape[1]} столбцов")
@@ -59,9 +57,7 @@ def load_and_clean_data(filepath):
 
 
 def create_features(df):
-    print("\n" + "=" * 60)
     print("FEATURE ENGINEERING")
-    print("=" * 60)
 
     original_features = len([c for c in df.columns if c != 'label'])
     print(f"\n Исходных признаков: {original_features}")
@@ -97,9 +93,7 @@ def create_features(df):
 
 
 def prepare_data_for_modeling(df, test_size=0.2, val_size=0.1, use_scaling=True):
-    print("\n" + "=" * 60)
     print("ПОДГОТОВКА ДАННЫХ ДЛЯ МОДЕЛИРОВАНИЯ")
-    print("=" * 60)
 
     set_seed(42)
 
@@ -150,9 +144,7 @@ def prepare_data_for_modeling(df, test_size=0.2, val_size=0.1, use_scaling=True)
 
 
 def generate_sample_data(n_samples=5000):
-    print("\n" + "=" * 60)
     print("ГЕНЕРАЦИЯ ДЕМО-ДАННЫХ")
-    print("=" * 60)
 
     np.random.seed(42)
     years = np.random.choice(range(1922, 2012), n_samples)

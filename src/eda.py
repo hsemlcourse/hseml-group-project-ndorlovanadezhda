@@ -7,13 +7,10 @@ from src.utils import save_figure
 
 def perform_eda(df):
 
-    print("\n" + "=" * 60)
     print("EXPLORATORY DATA ANALYSIS (EDA)")
-    print("=" * 60)
 
     # Описание датасета
     print("\nОПИСАНИЕ ДАТАСЕТА")
-    print("-" * 40)
     print(f"Строк: {df.shape[0]:,}")
     print(f"Столбцов: {df.shape[1]}")
     print(f"Годы: {df['label'].min()} - {df['label'].max()}")
@@ -22,7 +19,6 @@ def perform_eda(df):
 
     # Статистика
     print("\nСТАТИСТИКА ЦЕЛЕВОЙ ПЕРЕМЕННОЙ")
-    print("-" * 40)
     print(df['label'].describe())
 
     # Визуализации
@@ -31,7 +27,6 @@ def perform_eda(df):
 
 def create_visualizations(df):
     print("\nСОЗДАНИЕ ВИЗУАЛИЗАЦИЙ")
-    print("-" * 40)
 
     fig = plt.figure(figsize=(16, 12))
 

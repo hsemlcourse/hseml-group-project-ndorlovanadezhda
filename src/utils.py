@@ -18,9 +18,7 @@ def calculate_metrics(y_true, y_pred, model_name="Model"):
     rmse = np.sqrt(mean_squared_error(y_true, y_pred))
     r2 = r2_score(y_true, y_pred)
 
-    print(f"\n{'=' * 50}")
     print(f"Результаты: {model_name}")
-    print(f"{'=' * 50}")
     print(f"MAE:  {mae:.4f} лет (в среднем ошибка на {mae:.1f} лет)")
     print(f"RMSE: {rmse:.4f} лет")
     print(f"R²:   {r2:.4f} ({r2 * 100:.1f}% дисперсии объяснено)")
