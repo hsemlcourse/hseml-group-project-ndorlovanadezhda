@@ -41,8 +41,8 @@ def load_and_clean_data(filepath):
 
     numeric_cols = df.select_dtypes(include=[np.number]).columns
     numeric_cols = [c for c in numeric_cols if c != 'label']
-
-    for col in numeric_cols[:5]:
+#!Выбросы обрабатываются только для первых пяти числовых признаков вместо всех фич.(исправила)
+    for col in numeric_cols:
         outliers = detect_outliers_iqr(df, col)
         if outliers.sum() > 0:
             Q1 = df[col].quantile(0.25)
@@ -51,7 +51,7 @@ def load_and_clean_data(filepath):
             lower = Q1 - 1.5 * IQR
             upper = Q3 + 1.5 * IQR
             df[col] = df[col].clip(lower, upper)
-    print(f"   Выбросы обработаны для {min(5, len(numeric_cols))} признаков")
+    print(f"   Выбросы обработаны для {len(numeric_cols)} признаков")
 
     return df
 
